@@ -7,6 +7,10 @@ import org.jggug.kobo.gexcelapi.GExcel
 println "start"
 
 def path = $/C:\work\20160313\hoge.xlsx/$
+// def book = GExcel.open(new File(path))
+// def is = new FileInputStream(new File(path)) // Close‚·‚é•K—v‚ª‚ ‚éê‡‚Í‚±‚¿‚çB
+// def book = GExcel.open(is)
+// is.close()
 def book = GExcel.open(path)
 def sheet = book[0]
 sheet.rows.each {
