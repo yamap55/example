@@ -1,16 +1,17 @@
-def l = ["zun","doko"]
-def f = {Math.floor(Math.random() * 2) as int}
+def zd = ["zun","doko"]
+def r = new Random()
 
-def ll = []
-while(true) {
-  def i = f()
-  println l[i]
-  ll << i
-  if (ll == [0,0,0,0,0,1]) {
-    println "kiyoshi!"
-    return
+def zundoko = {l = [] ->
+  def z = r.nextInt(2)
+  println zd[z]
+  if (z) {
+    if (l.size() >= 4) {
+      println "kiyoshi!"
+      return
+    }
+    l = []
+  } else {
+    l += z
   }
-  if (i == 1) {
-    ll.clear()
-  }
-}
+  call(l)
+}()
