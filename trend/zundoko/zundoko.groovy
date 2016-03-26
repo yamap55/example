@@ -1,17 +1,11 @@
 def zd = ["zun","doko"]
 def r = new Random()
-
 def zundoko = {l = [] ->
-  def z = r.nextInt(2)
-  println zd[z]
-  if (z) {
-    if (l.size() >= 4) {
-      println "kiyoshi!"
-      return
-    }
-    l = []
+  l+=zd[r.nextInt(2)]
+  if(l.size() > 5 && l[(l.size()-5)..l.size()-1] == ["zun","zun","zun","zun","doko"]) {
+    println ((l + "kiyoshi!").join("\n"))
   } else {
-    l += z
+    trampoline(l)
   }
-  call(l)
-}()
+}.trampoline()
+zundoko()
