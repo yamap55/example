@@ -1,11 +1,32 @@
-@Grapes(
-    @Grab(group='net.lingala.zip4j', module='zip4j', version='1.2.3')
-)
-import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.util.Zip4jConstants;
 println "start ${new Date()}"
 
+
+//フォルダ内のファイルを圧縮
+def dir1 = /C:\work\test/
+def zipfile1 = /C:\work\a.zip/
+new AntBuilder().zip(destfile:zipfile1,basedir:dir1)
+
+// 特定のファイルをまとめて圧縮
+def zipfile2 = /C:\work\a.zip/
+def f1 = /C:\work\20120613\a.txt/
+def f2 = /C:\work\20120613\b.txt/
+
+new AntBuilder().zip(destfile:zipfile2) {
+  tarfileset(file : f1)
+  tarfileset(file : f2)
+}
+
+// ZIP解凍
+def zipfile2 = $/C:\work\20160419\hoge.zip/$
+def output = $/C:\work\20160419\output/$
+
+new AntBuilder().unzip(src:zipfile2,
+  dest:output,
+  overwrite:"false" )
+
+// パスワード付きZIP作成。
 def ip1 = $/C:\work\20160419\ziptest\a1.txt/$
 def ip2 = $/C:\work\20160419\ziptest\a2.txt/$
 def op = $/C:\work\20160419\ziptest\aa.zip/$
