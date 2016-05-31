@@ -30,3 +30,9 @@ var getCounter = function(){
 var updateCounter = function( counter ){
     chrome.browserAction.setBadgeText({text:String(counter)});
 };
+
+var Util = {
+  a: function() {
+    
+  }
+};
