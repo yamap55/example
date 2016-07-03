@@ -12,3 +12,7 @@ typeof obj1.hogehoge === "undefined"; // true
 
 var obj = new obj1();
 obj.hogehoge() // hogehoge
+
+typeof obj.hoge === "undefined"; // true
+typeof obj.huga === "undefined"; // true
+typeof obj.piyo === "undefined"; // true
