@@ -16,3 +16,15 @@ obj.hogehoge() // hogehoge
 typeof obj.hoge === "undefined"; // true
 typeof obj.huga === "undefined"; // true
 typeof obj.piyo === "undefined"; // true
+
+class Hoge {
+  constructor(data){
+    this.data = data;
+  }
+  method1() {
+    console.log("method1");
+  }
+}
+var hoge = new Hoge();
+console.log(hoge.data); // a
+hoge.method1(); // method1
