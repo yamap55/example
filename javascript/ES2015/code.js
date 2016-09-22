@@ -29,3 +29,9 @@ function test(a, ...b) {
 }
 test(); // undefined []
 test(1, 2, 3);// => 1 [2, 3]
+
+// Shorthand property names
+const hoge = "hogehoge";
+const huga = 9999;
+const obj = {hoge, huga};
+console.log(obj); // {hoge: "hogehoge", huga: 9999}
