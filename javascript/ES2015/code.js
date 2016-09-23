@@ -35,3 +35,19 @@ const hoge = "hogehoge";
 const huga = 9999;
 const obj = {hoge, huga};
 console.log(obj); // {hoge: "hogehoge", huga: 9999}
+
+// method
+const object1 = {
+  hoge : "hogehoge",
+
+  method1() {
+    console.log(`method1 : ${this.hoge}`);
+  },
+
+  method2(args) {
+    console.log(`method2 : ${this.hoge} : ${args}`);
+  }
+}
+
+console.log(object1.method1()); // method1 : hogehoge
+console.log(object1.method2("arg")); // method2 : hogehoge : arg
