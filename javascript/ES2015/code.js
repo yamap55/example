@@ -51,3 +51,22 @@ const object1 = {
 
 console.log(object1.method1()); // method1 : hogehoge
 console.log(object1.method2("arg")); // method2 : hogehoge : arg
+
+// Destructuring assignment
+const array = [10, 20, 30, 40];
+const object2 = {aa : "aaa", bb : "bbb", cc: "ccc"};
+
+const [arg1, arg2, ...argN] = array;
+console.log(arg1, arg2, argN); // 10 20 [30, 40]
+
+var {aa, cc} = object2
+console.log(aa, cc); // aaa ccc
+
+const {aa : hoge2, cc : huga2} = object2
+console.log(hoge2, huga2); // aaa ccc
+
+function func2({aaa, bbb} = {aaa : 11, bbb : 22}) {
+  console.log(aaa, bbb);
+}
+func2(); // 11 22
+func2({aaa : 111, bbb : 222, ccc : 333}); // 111 222
