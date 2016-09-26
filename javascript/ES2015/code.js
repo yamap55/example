@@ -81,3 +81,16 @@ for (const arg of [1,3,5]) {
   func2(); // 11 22
   func2({aaa : 111, bbb : 222, ccc : 333}); // 111 222
 }
+
+// Spread syntax
+{
+  const array = ["aa", "bb", "cc"];
+  function func(a, b, c) {
+    console.log(a, b, c);
+  }
+  func(...array); // aa bb cc
+
+  const [x, ...rest] = array;
+  console.log(rest); // ["bb", "cc"]
+  console.log(x); // aa
+}
