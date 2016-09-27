@@ -94,3 +94,26 @@ for (const arg of [1,3,5]) {
   console.log(rest); // ["bb", "cc"]
   console.log(x); // aa
 }
+
+// Promise
+{
+  function setTimeoutAsync(time, occurError = false) {
+    return new Promise((resolve, reject) => {
+      if (occurError) {
+        reject(new Error("error!"));
+      } else {
+        setTimeout(() => {
+          resolve(`${time} since milliseconds`);
+        }, time);
+      }
+    });
+  }
+
+  setTimeoutAsync(1000).then((text) => {
+    console.log(text); // 1000 since milliseconds
+  });
+
+  setTimeoutAsync(1000, true).catch((err) => {
+    console.log(err.message); // error!
+  });
+}
