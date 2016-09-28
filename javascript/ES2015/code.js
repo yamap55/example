@@ -116,4 +116,19 @@ for (const arg of [1,3,5]) {
   setTimeoutAsync(1000, true).catch((err) => {
     console.log(err.message); // error!
   });
+
+  setTimeoutAsync(1000).then((text) => {
+    console.log(text);
+    return "hoge"; // return value next then execute
+  }).then((text) => {
+    console.log(text);
+    return setTimeoutAsync(1500);
+  }).then((text) => {
+    console.log(text);
+    return setTimeoutAsync(2000, true); // next is catch
+  }).then((text) => {
+    console.log("don't output"); //
+  }).catch((err) => {
+    console.log(err.message);
+  });
 }
