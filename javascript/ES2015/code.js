@@ -2,11 +2,19 @@
 
 {
   // const and let
-  const a = "a";
-  // a = "b" // error
-  let b = "b";
-  b = "c"; // OK
+  var a = "a";
+  var a = "aa"; // OK
 
+  let b = "b";
+  //let b = "bb"; // NG
+
+  b = "bb"; // OK
+
+  const c = "c";
+  // c = "cc" // NG
+}
+
+{}
   // Template literals
   console.log(`a : ${a}`);
 }
