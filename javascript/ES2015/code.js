@@ -2,6 +2,7 @@
 
 {
   // const and let
+
   var a = "a";
   var a = "aa"; // OK
 
@@ -14,7 +15,7 @@
   // c = "cc" // NG
 }
 
-{}
+{
   // Template literals
   console.log(`a : ${a}`);
 }
