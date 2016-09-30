@@ -43,7 +43,7 @@ for (const arg of [1,3,5]) {
     console.log(a, b);
   }
   test(); // undefined []
-  test(1, 2, 3);// => 1 [2, 3]
+  test(1, 2, 3);// 1 [2, 3]
 }
 // Shorthand property names
 {
