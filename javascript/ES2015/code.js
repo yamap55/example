@@ -2,7 +2,6 @@
 
 {
   // const and let
-
   var a = "a";
   var a = "aa"; // OK
 
@@ -13,6 +12,16 @@
 
   const c = "c";
   // c = "cc" // NG
+}
+
+{
+  // arrow function expression
+  const func1 = (a, b) => console.log("a, b");
+  const func2 = c => console.log("c");
+  const func3 = (d, e) => {return "d,e"};
+  func1();
+  func2();
+  console.log(func3());
 }
 
 {
