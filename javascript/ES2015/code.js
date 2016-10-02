@@ -151,3 +151,15 @@ for (const arg of [1,3,5]) {
     console.log(err.message);
   });
 }
+{
+  // class
+  class HogeClass {
+    constructor(arg) {
+      this.arg = arg;
+      console.log(arg);
+    }
+  }
+
+  const hoge = new HogeClass("a"); // a
+  console.log(hoge); // HogeClass {arg : 'a'}
+}
