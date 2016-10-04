@@ -156,10 +156,23 @@ for (const arg of [1,3,5]) {
   class HogeClass {
     constructor(arg) {
       this.arg = arg;
-      console.log(arg);
+      console.log(`constructor : ${arg}`);
+    }
+
+    static staticMethod() {
+      console.log("static method");
+    }
+
+    methodA() {
+      console.log(`methodA : ${this.arg}`);
     }
   }
 
+  HogeClass.staticMethod();
+  // console.log(HogeClass.methodA()); // error
+
   const hoge = new HogeClass("a"); // a
   console.log(hoge); // HogeClass {arg : 'a'}
+  // hoge.staticMethod(); // error
+  hoge.methodA(); // methodA : a
 }
