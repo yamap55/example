@@ -168,11 +168,34 @@ for (const arg of [1,3,5]) {
     }
   }
 
-  HogeClass.staticMethod();
+  HogeClass.staticMethod(); // static method
   // console.log(HogeClass.methodA()); // error
 
-  const hoge = new HogeClass("a"); // a
+  const hoge = new HogeClass("a"); // constructor : a
   console.log(hoge); // HogeClass {arg : 'a'}
   // hoge.staticMethod(); // error
   hoge.methodA(); // methodA : a
+
+  class PiyoClass extends HogeClass {
+    constructor(arg) {
+      super(arg); // parent class' constructor
+      console.log("piyo constructor");
+    }
+
+    static piyoStaticMethod() {
+      console.log("piyo static method");
+    }
+
+    piyoMethod() {
+      console.log("piyo method");
+    }
+  }
+
+  PiyoClass.staticMethod(); // static method
+  PiyoClass.piyoStaticMethod(); // piyo static method
+
+  const piyo = new PiyoClass("b"); // constructor : b, piyo constructor
+  console.log(piyo); // PiyoClass {arg: "b"}
+  piyo.methodA(); // methodA : b
+  piyo.piyoMethod(); // piyo method
 }
