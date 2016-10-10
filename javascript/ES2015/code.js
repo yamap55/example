@@ -199,3 +199,9 @@ for (const arg of [1,3,5]) {
   piyo.methodA(); // methodA : b
   piyo.piyoMethod(); // piyo method
 }
+{
+  // Object.assign
+  const obj = {a: 1, b: 2, c: 3};
+  Object.assign(obj, {d: 4, e: 5}, {a: 10, b: 20});
+  console.log(obj); // { a: 10, b: 20, c: 3, d: 4, e: 5 }
+}
