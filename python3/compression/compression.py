@@ -1,4 +1,3 @@
-import codecs
 import os
 import zipfile
 import pyminizip
@@ -26,7 +25,7 @@ with zipfile.ZipFile("./data/somefile.zip", "r") as zf:
     print(zf.namelist()) # namelistでファイル名確認
 
     # バイトで書き込むので「b」で開く
-    with codecs.open(outputDir + "somefile.txt", "wb") as writeFile:
+    with open(outputDir + "somefile.txt", "wb") as writeFile:
         writeFile.write(zf.read("somefile/file2.txt")) # readはバイトが返る
 
     # テキストで取得したい場合はopenで開いてデコード？
