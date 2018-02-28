@@ -1,5 +1,3 @@
-
-import codecs
 import os
 
 from datetime import datetime
@@ -32,8 +30,11 @@ with open(defaultTextPath) as f:
         print(line2.rstrip())
         line2 = f.readline()
 
-# codecsモジュールを使うと文字コードを指定して読める
-with codecs.open("./data/euc-crlf.txt", "r", "euc_jp") as f:
+# 文字コードを指定する場合にはencoding
+# https://docs.python.jp/3.5/library/functions.html#open
+# 検索するとcodecsモジュールを使うなどと出てくるが「codecs」は古い！
+# python 2でもio.openでpython 3と同じ動きとのこと）
+with open("./data/euc-crlf.txt", "r", encoding="euc_jp") as f:
     print(f.read())
 
 # ----------------------
@@ -45,18 +46,18 @@ outputDir = "./output/" + d + "/"
 os.mkdir(outputDir)
 
 # 基本形（OSのデフォルト？文字コードで書き込み）
-with codecs.open(outputDir + "fisrt.txt", "w") as writeFile:
+with open(outputDir + "fisrt.txt", "w") as writeFile:
     writeFile.write("あいうえお\nかきくけこ\nさしすせそ\n") # Windowsの場合改行コードも何故か\r\nで出力
 
 # 1行ごとに書き込み（OSのデフォルト？文字コードで書き込み）
-with codecs.open(outputDir + "second.txt", "w") as writeFile:
+with open(outputDir + "second.txt", "w") as writeFile:
     # Windowsの場合改行コードも何故か\r\nで出力
     writeFile.write("あいうえお\n")
     writeFile.write("かきくけこ\n")
     writeFile.write("さしすせそ\n")
 
 # 文字コードを指定して書き込み
-with codecs.open(outputDir + "third.txt", "w", "UTF-8") as writeFile:
+with open(outputDir + "third.txt", "w", encoding="UTF-8") as writeFile:
     writeFile.write("あいうえお\nかきくけこ\nさしすせそ\n") # Windowsの場合でも改行コードは\nで出力
 
 # --------------------
@@ -64,11 +65,11 @@ with codecs.open(outputDir + "third.txt", "w", "UTF-8") as writeFile:
 # --------------------
 
 # 文字コード変換
-with codecs.open("./data/euc-crlf.txt", "r", "euc_jp") as f:
-    with codecs.open(outputDir + "euc-utf8.txt", "w", "UTF-8") as writeFile:
+with open("./data/euc-crlf.txt", "r", encoding="euc_jp") as f:
+    with open(outputDir + "euc-utf8.txt", "w", encoding="UTF-8") as writeFile:
         writeFile.write(f.read())
 
 # 文字コードと改行コード変換
-with codecs.open("./data/utf8-crlf.txt", "r", "UTF-8") as f:
-    with codecs.open(outputDir + "utf8-shift_jis-lf.txt", "w", "shift_jis") as writeFile:
+with open("./data/utf8-crlf.txt", "r", encoding="UTF-8") as f:
+    with open(outputDir + "utf8-shift_jis-lf.txt", "w", encoding="shift_jis") as writeFile:
         writeFile.write(f.read().replace("\r\n","\n"))
